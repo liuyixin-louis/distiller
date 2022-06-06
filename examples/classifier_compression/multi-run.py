@@ -47,7 +47,7 @@ def run_experiment(args):
     experiment_outdir, id, seed, gpu = args
     experiment_cmd = " ".join(sys.argv[2:])
     parser = argparse.ArgumentParser()
-    parser.add_argument('--seed', type=int, default=1001,
+    parser.add_argument('--seed', type=int, default=1002,
                         help='seed the PRNG for CPU, CUDA, numpy, and Python')
     #experiment_cmd += + ' > /dev/null'
     multi_args, unknown = parser.parse_known_args()
@@ -61,6 +61,6 @@ os.makedirs(experiment_outdir, exist_ok=False)
 
 n_gpus = torch.cuda.device_count()
 pool = Pool(processes=n_gpus)                                             
-pool.map_async(run_experiment, [(experiment_outdir, id, 1001+id, id%n_gpus) for id in range(n_gpus)])
+pool.map_async(run_experiment, [(experiment_outdir, id, 1002+id, id%n_gpus) for id in range(n_gpus)])
 pool.close()
 pool.join()
