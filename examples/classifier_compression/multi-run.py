@@ -47,7 +47,7 @@ def run_experiment(args):
     experiment_outdir, id, seed, gpu = args
     experiment_cmd = " ".join(sys.argv[2:])
     parser = argparse.ArgumentParser()
-    parser.add_argument('--seed', type=int, default=1000,
+    parser.add_argument('--seed', type=int, default=1001,
                         help='seed the PRNG for CPU, CUDA, numpy, and Python')
     #experiment_cmd += + ' > /dev/null'
     multi_args, unknown = parser.parse_known_args()
