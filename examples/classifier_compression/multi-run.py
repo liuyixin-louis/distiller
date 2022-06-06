@@ -61,6 +61,6 @@ os.makedirs(experiment_outdir, exist_ok=False)
 
 n_gpus = torch.cuda.device_count()
 pool = Pool(processes=n_gpus)                                             
-pool.map_async(run_experiment, [(experiment_outdir, id, 1000+id, id%n_gpus) for id in range(n_gpus)])
+pool.map_async(run_experiment, [(experiment_outdir, id, 1001+id, id%n_gpus) for id in range(n_gpus)])
 pool.close()
 pool.join()
